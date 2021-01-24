@@ -1,25 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
 	<body>
 		<center>
-		<h2>íšŒì›ì •ë³´ ë³´ê¸°</h2>
+		<h2>È¸¿øÁ¤º¸ º¸±â</h2>
 		<%
-		  // postë°©ì‹ìœ¼ë¡œ ë°ì´í„°ê°€ ë„˜ì–´ì˜¬ë•Œ í•œê¸€ì´ ê¹¨ì§ˆìˆ˜ ìžˆê¸°ì—
+		  // post¹æ½ÄÀ¸·Î µ¥ÀÌÅÍ°¡ ³Ñ¾î¿Ã¶§ ÇÑ±ÛÀÌ ±úÁú¼ö ÀÖ±â¿¡
 		  
-		  //ê°ì¢… ì‚¬ìš©ìžë¡œë¶€í„° ë„˜ì–´ì˜¨ ë°ì´í„°ë¥¼ ì €ìž¥í•´ì¤Œ
+		  //°¢Á¾ »ç¿ëÀÚ·ÎºÎÅÍ ³Ñ¾î¿Â µ¥ÀÌÅÍ¸¦ ÀúÀåÇØÁÜ
 		  String id = request.getParameter("id");
 		  String pass1 = request.getParameter("pass1");
 		  String pass2 = request.getParameter("pass2");
 		  String email = request.getParameter("email");
 		  String tel = request.getParameter("tel");
 		  
-		  //[]ì—´ íƒ€ìž…ì„ ë¦¬í„´ë°›ì•„ì¤Œ
+		  //[]¿­ Å¸ÀÔÀ» ¸®ÅÏ¹Þ¾ÆÁÜ
 		  String[] hobby = request.getParameterValues("hobby");
 		  String job = request.getParameter("job");
 		  String age = request.getParameter("age");
@@ -27,15 +27,56 @@
 		  if (!pass1.equals(pass2)) {
 		%>
 		  <script type="text/javascript">
-		  	alert("ë¹„ë°€ë²ˆí˜¸ê°€ ë‹¤ë¦„ë‹ˆë‹¤.");
+		  	alert("ºñ¹Ð¹øÈ£°¡ ´Ù¸¨´Ï´Ù.");
 		  	history.go(-1);
 		  </script>	  
 		<%
 		  }
 		%>
-		ì•„ì´ë””ëŠ”<%=id %><br/> ë¹„ë°€ë²ˆí˜¸ëŠ” <%=pass1 %>
+		
 		</center>
-	
+		<table width="500" bordor="1">
+			<tr hegith="70">
+				<td width="150" align="center"> ¾ÆÀÌµð</td>
+				<td width="350" align="center"> <%= id %> 
+				</td>
+				</tr>
+			<tr hegith="70">
+				<td width="150" align="center"> ÀÌ¸ÞÀÏ</td>
+				<td width="350" align="center"> <%=email %>
+				</td>
+			</tr>
+			<tr hegith="70">
+				<td width="150" align="center"> ÀüÈ­¹øÈ£</td>
+				<td width="350" align="center"> <%=tel %>
+				</td>
+			</tr>
+			<tr height="70">
+				<td width="150" align="center"> ´ç½ÅÀÇ °ü½ÉºÐ¾ß</td>
+				<td width="150" align="center">
+				Ãë¹Ì´Â: 
+				<%
+				for(String hoby : hobby) {
+				%>
+				<%=hoby%> ,
+				<% 
+				}
+				%>
+				</td>
+			</tr>
+			<tr height="70">
+				<td width="150" align="center"> ´ç½ÅÀÇ Á÷¾÷Àº:</td>
+				<td width="150" align="center"> <%= job %> </td>
+			</tr>
+			<tr height="70">
+				<td width="150" align="center"> ´ç½ÅÀÇ ³ªÀÌ´Â:</td>
+				<td width="150" align="center"> <%= age %> </td>
+			</tr>
+			<tr height="70">
+				<td width="150" align="center"> ´ç½ÅÀÌ ÇÏ°í½ÍÀº¸»Àº</td>
+				<td width="150" align="center"> <%=info %> </td>
+			</tr>
+		</table>
 	
 	</body>
 </html>
